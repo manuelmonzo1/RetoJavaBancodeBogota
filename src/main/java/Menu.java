@@ -1,13 +1,18 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Menu {
-    Cliente cliente = new Cliente(1);
+public class Menu{
+
+    ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     Scanner scanner = new Scanner(System.in);
     int opcion;
     public Menu(int i) {
+        super();
     }
 
     public void ejecutarMenu() {
+        Cliente cliente = new Cliente();
+
         do {
             System.out.println("*******************************");
             System.out.println("********Menu*******");
@@ -19,16 +24,16 @@ public class Menu {
             System.out.println("***********************");
             System.out.print("Selecionar una Opcion: ");
             opcion = Integer.parseInt(scanner.nextLine());
-            Cliente cliente = new Cliente(1);
             switch (opcion) {
                 case 1:
-                    cliente.agregarCliente();
+                    int i = 0;
+                    cliente.agregarCliente(i); //0K
                     break;
                 case 2:
-                    cliente.actualizarCliente();
+                   cliente.actualizarCliente();//OK
                     break;
                 case 3:
-                    cliente.consultarCliente();
+                    cliente.consultarClliente();
                     break;
                 case 4:
                     cliente.verListaCliente();

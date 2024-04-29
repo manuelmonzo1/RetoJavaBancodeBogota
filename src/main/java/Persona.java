@@ -1,15 +1,12 @@
-import java.util.ArrayList;
-
 public class Persona {
     private String nomreUsuario;
-    private String apelllido;
+    private String apellido;
     private int cedula;
 
-    ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
-    public Persona(String nomreUsuario, String apelllido, int cedula) {
+    public Persona(String nomreUsuario, String apellido, int cedula) {
         this.nomreUsuario = nomreUsuario;
-        this.apelllido = apelllido;
+        this.apellido = apellido;
         this.cedula = cedula;
     }
 
@@ -24,13 +21,16 @@ public class Persona {
         this.nomreUsuario = nomreUsuario;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
 
-    public void setApelllido(String apelllido) {
-        this.apelllido = apelllido;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public int getCedula() {
-        return cedula;
+        return this.cedula;
     }
 
     public void setCedula(int cedula) {
@@ -41,7 +41,7 @@ public class Persona {
     public String toString() {
         return "Persona{" +
                 "nomreUsuario='" + nomreUsuario + '\'' +
-                ", apelllido='" + apelllido + '\'' +
+                ", apelllido='" + apellido + '\'' +
                 ", cedula=" + cedula +
                 '}';
     }

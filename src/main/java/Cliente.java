@@ -5,62 +5,38 @@ import java.util.Scanner;
 public class Cliente extends Persona {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+
     private Persona[] personas;
     private int cantidadPersonas;
-    private final int capacidadMax;
+    private int capacidadMax = 0;
 
-    int indice;
-
-    public Cliente(int capacidadMax) {
-        super();
+    public Cliente() {
         this.capacidadMax = capacidadMax;
-        //Capacidad Maxima del Array
         personas = new Persona[capacidadMax];
-        cantidadPersonas = 1;
+        cantidadPersonas = 0;
     }
-    //AGREGAR CLIENTE FUNCIONAMIENTO (0K)
-    public void agregarCliente() {
-        String nombre, apellido, cedula;
+
+    //METODO_1 AGREGAR PERSONA
+    public void agregarCliente(int i) {
+        String nomreUsuario, apellido;
+        int cedula;
         System.out.println("Digitar Nombre: ");
-        nombre = scanner.nextLine();
+        nomreUsuario = scanner.nextLine();
         System.out.println("Digitar Apellido: ");
         apellido = scanner.nextLine();
         System.out.println("Digitar Cedula: ");
-        cedula = scanner.nextLine();
-        Cliente cliente = new Cliente(1);
+        cedula = Integer.parseInt(scanner.nextLine());
+        Cliente cliente = new Cliente();
+        cliente.setNomreUsuario(nomreUsuario);
+        cliente.setApellido(apellido);
+        cliente.setCedula(cedula);
+        cliente.getNomreUsuario();
+        cliente.getApellido();
+        cliente.getCedula();
+        Banco banco = new Banco();
+        banco.mostrarProductos();
         clientes.add(cliente);
         System.out.println("Cliente Creado con Exito");
-    }
-    public void mostrarCliente(int indice) {
-        System.out.println("Cliente numero: " + (indice + 1));
-        System.out.println("Nombre: " + clientes.get(indice).getNomreUsuario());
-        System.out.println("Cedula: " + clientes.get(indice).getCedula());
-//        for (int j = 0; j < clientes.get(indice).getProductos().length; j++) {
-//            System.out.println("producto " + (j + 1) + " " + clientes.get(indice).getProductos()[j]);
-//        }
-    }
-    public int consultarCliente() {
-        String cedula;
-        int indice = -1;
-        System.out.println("Digite Numero de cedula: ");
-        cedula = scanner.nextLine();
-        for (int i = 0; i < clientes.size(); i++) {
-            if (clientes.get(indice).equals(cedula)) {
-                indice = i;
-            }
-        }
-        if (indice == -1) {
-            System.out.println("cliente no encontrado: ");
-        }
-        return indice;
-    }
-    public void verListaCliente() {
-        System.out.println("Los clientes son las siguientes: ");
-        for (int i = 0; i < clientes.size(); i++) {
-            agregarCliente();
-            System.out.println(getNomreUsuario());
-            break;
-        }
     }
 
     public void actualizarCliente() {
@@ -77,32 +53,29 @@ public class Cliente extends Persona {
             System.out.println("***********************");
             System.out.print("Selecionar una Opcion: ");
             dato = Integer.parseInt(scanner.nextLine());
-            int indice = 0;
             switch (dato) {
                 case 1:
-                    Cliente cliente = new Cliente(10);
+                    Cliente cliente = new Cliente();
                     System.out.println("Digite el nombre: ");
                     nombre = scanner.nextLine();
                     cliente.setNomreUsuario(nombre);
                     break;
                 case 2:
-                    Cliente cliente1 = new Cliente(1);
+                    Cliente cliente1 = new Cliente();
                     System.out.println("Digite el Apellido: ");
                     apellido = scanner.nextLine();
-                    cliente1.setApelllido(apellido);
+                    cliente1.setApellido(apellido);
                     break;
                 case 3:
-                    Cliente cliente2 = new Cliente(1);
+                    Cliente cliente2 = new Cliente();
                     System.out.println("Digite cedula: ");
                     cedula = scanner.nextLine();
                     cliente2.setCedula(Integer.parseInt(cedula));
                     break;
                 case 4:
-//                    System.out.println("Digite su primer producto: ");
-//                    productos[0] = scanner.nextLine();
-//                    System.out.println("Digite su segundo producto: ");
-//                    productos[1] = scanner.nextLine();
-//                    clientes.get(indice).
+                    Banco CDT = new Banco();
+                    Banco AHORROS = new Banco();
+
                     break;
                 case 5:
                     break;
@@ -113,4 +86,40 @@ public class Cliente extends Persona {
         while (dato != 5);
     }
 
+    public int consultarClliente() {
+        Integer cedula;
+        int indice = -1;
+        System.out.println("Digite Numero de cedula: ");
+        cedula = Integer.valueOf(scanner.nextLine());
+        for (int i = 0; i < clientes.size(); i++) {
+            if (cedula.equals(clientes.get(i).getCedula())) {
+                System.out.println("Nombre: " + clientes.get(i).getNomreUsuario());
+                System.out.println("Apellido: " + clientes.get(i).getApellido());
+                indice = i;
+            }
+        }
+        if (indice == -1) {
+            System.out.println("cliente no encontrado: ");
+        }
+        return indice;
+    }
+
+    public void verListaCliente() {
+        System.out.println("Los clientes son las siguientes: ");
+        for (int i = 0; i < clientes.size(); i++) {
+            clientes.get(i);
+            System.out.println("Nombre: " + clientes.get(i).getNomreUsuario());
+            System.out.println("Apellido: " + clientes.get(i).getApellido());
+            System.out.println("Cedula: " + clientes.get(i).getCedula());
+            System.out.println("idProducto: " );
+            System.out.println("_____________________________");
+            System.out.println("Nombre: " + clientes.get(i+1).getNomreUsuario());
+            System.out.println("Apellido: " + clientes.get(i+1).getApellido());
+            System.out.println("Cedula: " + clientes.get(i+1).getCedula());
+            System.out.println("-----------------------------");
+            break;
+        }
+    }
 }
+
+
