@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Menu{
+public class Menu extends Cliente{
 
     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
     Scanner scanner = new Scanner(System.in);
     int opcion;
-    public Menu(int i) {
+    public Menu() {
         super();
     }
 

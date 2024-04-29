@@ -8,10 +8,11 @@ public class Cliente extends Persona {
 
     private Persona[] personas;
     private int cantidadPersonas;
-    private int capacidadMax = 0;
+    private int capacidadMax;
+
 
     public Cliente() {
-        this.capacidadMax = capacidadMax;
+        //this.capacidadMax = capacidadMax;
         personas = new Persona[capacidadMax];
         cantidadPersonas = 0;
     }
@@ -39,10 +40,13 @@ public class Cliente extends Persona {
         System.out.println("Cliente Creado con Exito");
     }
 
+
     public void actualizarCliente() {
-        String nombre, apellido, cedula;
-        String[] productos = new String[5];
+        String nombre, apellido;
+        int cedula;
+        String[] productos = new String[2];
         int dato;
+        int indice = 0;
         do {
             System.out.println("Por favor indique el dato que quiere modificar: ");
             System.out.println("Opcion 1: Nombre");
@@ -55,27 +59,21 @@ public class Cliente extends Persona {
             dato = Integer.parseInt(scanner.nextLine());
             switch (dato) {
                 case 1:
-                    Cliente cliente = new Cliente();
                     System.out.println("Digite el nombre: ");
                     nombre = scanner.nextLine();
-                    cliente.setNomreUsuario(nombre);
+                    clientes.get(indice).setNomreUsuario(nombre);
                     break;
                 case 2:
-                    Cliente cliente1 = new Cliente();
                     System.out.println("Digite el Apellido: ");
                     apellido = scanner.nextLine();
-                    cliente1.setApellido(apellido);
+                    clientes.get(indice).setApellido(apellido);
                     break;
                 case 3:
-                    Cliente cliente2 = new Cliente();
                     System.out.println("Digite cedula: ");
-                    cedula = scanner.nextLine();
-                    cliente2.setCedula(Integer.parseInt(cedula));
+                    cedula = Integer.parseInt(scanner.nextLine());
+                    clientes.get(indice).setCedula(cedula);
                     break;
                 case 4:
-                    Banco CDT = new Banco();
-                    Banco AHORROS = new Banco();
-
                     break;
                 case 5:
                     break;
@@ -85,6 +83,7 @@ public class Cliente extends Persona {
         }
         while (dato != 5);
     }
+
 
     public int consultarClliente() {
         Integer cedula;
@@ -113,10 +112,6 @@ public class Cliente extends Persona {
             System.out.println("Cedula: " + clientes.get(i).getCedula());
             System.out.println("idProducto: " );
             System.out.println("_____________________________");
-            System.out.println("Nombre: " + clientes.get(i+1).getNomreUsuario());
-            System.out.println("Apellido: " + clientes.get(i+1).getApellido());
-            System.out.println("Cedula: " + clientes.get(i+1).getCedula());
-            System.out.println("-----------------------------");
             break;
         }
     }
